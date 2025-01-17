@@ -1,0 +1,24 @@
+<p>Hello {{ email.toName }},</p>
+
+<p>Congratulations on joining the Georgia State University team!</p>
+
+<p>This is a friendly reminder - your due date to complete your New Hire Required Training is approaching. You have {{ daysRemaining }} days to complete the 
+following assignments:</p>
+
+<ul>
+  {% for assignment in assignments %}
+    <li>{{ assignment.name|e }}</li>
+  {% endfor %}
+</ul>
+
+<p>
+Please use this link to complete your training:<br/>
+<a href="{{ loginLink }}">{{ loginLink }}</a>
+</p>
+
+<p>Please be informed that {{ include('required.html.twig') }}</p>
+
+<p>If you have any questions, please contact GSU Onboarding at <a href="mailto:{{ email.from[0].address }}">{{ email.from[0].address }}</a> and our team will 
+be happy to assist you.</p>
+
+{{ include('footer.html.twig') }}

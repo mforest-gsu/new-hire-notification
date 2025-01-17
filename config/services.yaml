@@ -1,0 +1,21 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  App\:
+    resource: "../src/"
+    exclude:
+      - "../src/DependencyInjection/"
+      - "../src/Entity/"
+      - "../src/Kernel.php"
+
+  Oracle\OCI\Connection:
+    class: Oracle\OCI\Connection
+    arguments:
+      $username: "%env(OCI_USER)%"
+      $password: "%env(OCI_PASS)%"
+      $connection: "%env(OCI_CONN)%"
+      $sessionMode: !php/const OCI_CRED_EXT

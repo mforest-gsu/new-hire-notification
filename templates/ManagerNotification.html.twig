@@ -1,0 +1,18 @@
+<p>{{ directReports|length }} of your employees have not completed their assignment(s) as part of their new hire required training. 
+{{ include('required.html.twig') }}</p>
+
+<p><b>Employees who have not completed one or more assignments:</b></p>
+
+<p>
+  <ul>
+    {% for employee in directReports %}
+      <li>{{ employee.name|e }} (<a href="mailto:{{ employee.email|e }}">{{ employee.email|e }}</a>)</li>
+    {% endfor %}
+  </ul>
+</p>
+
+<p>It is important that the training is completed before the deadline. Please remind these employees to complete the 
+training. If a listed employee no longer works in your area, the information can be corrected by contacting the human 
+resources coordinator for your organization to update the information in OneUSG Connect.</p>
+
+{{ include('footer.html.twig') }}
