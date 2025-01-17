@@ -61,7 +61,6 @@ abstract class AbstractNotifyCommand extends Command
             try {
                 $this->saveNotification($notification);
             } catch (\Throwable $t) {
-                $output->writeln($t->__toString());
                 $output->writeln(["saveNotification() failed", $t->__toString()]);
             }
         }
