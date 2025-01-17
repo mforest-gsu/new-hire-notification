@@ -158,9 +158,17 @@ class LoadTrackingDataCommand extends Command
     {
         $stmt = $this->oci->parse("
           INSERT INTO HRE_NOTIFY_LOG
-            (HRE_NOTIFY_LOG_SEQNUM, HRE_NOTIFY_LOG_ID, HRE_NOTIFY_LOG_TIMESTAMP)
+            (
+              HRE_NOTIFY_LOG_SEQNUM,
+              HRE_NOTIFY_LOG_ID,
+              HRE_NOTIFY_LOG_TIMESTAMP
+            )
           VALUES
-            (:HRE_NOTIFY_LOG_ID, TO_DATE(:HRE_NOTIFY_LOG_TIMESTAMP, 'yyyy-mm-dd hh24:mi:ss'))
+            (
+              HRE_NOTIFY_LOG_SEQ.NEXTVAL,
+              :HRE_NOTIFY_LOG_ID,
+              TO_DATE(:HRE_NOTIFY_LOG_TIMESTAMP, 'yyyy-mm-dd hh24:mi:ss')
+            )
         ");
 
         try {
