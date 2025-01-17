@@ -6,7 +6,6 @@ SELECT
   UserAccount.LastName AS "HRE_EMPLOYEE_LAST_NAME"
 FROM
   MFOREST.SISUSER BannerUser,
-  MFOREST.SISUSER BannerUser,
   MFOREST.D2L_USER UserAccount
 WHERE
   UserAccount.OrgDefinedId = BannerUser.SISUSER_ORG_DEFINED_ID AND
