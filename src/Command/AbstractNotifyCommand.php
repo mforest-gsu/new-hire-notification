@@ -29,7 +29,8 @@ abstract class AbstractNotifyCommand extends Command
         protected AssignmentRepository $assignmentRepository,
         private NotificationRepository $notificationRepository,
         private MailerInterface $mailer,
-        private string $fromEmail = "GSU Onboarding <requiredtraining@gsu.edu>"
+        private string $fromEmail = "GSU Onboarding <requiredtraining@gsu.edu>",
+        private string $loginLink = "https://gastate.view.usg.edu/d2l/login"
     ) {
         parent::__construct();
     }
@@ -94,7 +95,7 @@ abstract class AbstractNotifyCommand extends Command
             $this->fromEmail,
             "{$employee->getName()} <{$employee->getEmail()}>",
             $subject,
-            $context
+            ['loginLink' => $this->loginLink, ...$context]
         );
     }
 

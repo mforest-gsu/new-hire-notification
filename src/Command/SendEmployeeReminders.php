@@ -15,7 +15,6 @@ class SendEmployeeReminders extends AbstractNotifyCommand
      */
     protected function getNotifications(): iterable
     {
-        $loginLink = 'https://gastate.view.usg.edu/d2l/login';
         foreach ($this->employeeRepository->getEmployeesToRemind() as $userId => list($employee, $daysRemaining)) {
             $assignments = $this->assignmentRepository->get($userId, false);
             if (count($assignments) > 0) {
@@ -23,7 +22,7 @@ class SendEmployeeReminders extends AbstractNotifyCommand
                     $employee,
                     'EmployeeReminder',
                     'Required Training Reminder',
-                    ['daysRemaining' => $daysRemaining, 'assignments' => $assignments, 'loginLink' => $loginLink]
+                    ['daysRemaining' => $daysRemaining, 'assignments' => $assignments]
                 );
             }
         }
