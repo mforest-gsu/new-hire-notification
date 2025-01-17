@@ -6,9 +6,9 @@
 following assignments:</p>
 
 <ul>
-  {% for assignment in assignments %}
-    <li>{{ assignment.name|e }}</li>
-  {% endfor %}
+{% for assignment in assignments %}
+<li>{{ assignment.name|e }}</li>
+{% endfor %}
 </ul>
 
 <p>

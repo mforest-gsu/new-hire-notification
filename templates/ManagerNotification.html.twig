@@ -1,14 +1,14 @@
-<p>{{ directReports|length }} of your employees have not completed their assignment(s) as part of their new hire required training. 
-{{ include('required.html.twig') }}</p>
+<p>{{ directReports|length }} of your employees have not completed their assignment(s) as part of their new hire 
+required training. {{ include('required.html.twig') }}</p>
 
 <p><b>Employees who have not completed one or more assignments:</b></p>
 
 <p>
-  <ul>
-    {% for employee in directReports %}
-      <li>{{ employee.name|e }} (<a href="mailto:{{ employee.email|e }}">{{ employee.email|e }}</a>)</li>
-    {% endfor %}
-  </ul>
+<ul>
+{% for employee in directReports %}
+<li>{{ employee.name|e }} (<a href="mailto:{{ employee.email|e }}">{{ employee.email|e }}</a>)</li>
+{% endfor %}
+</ul>
 </p>
 
 <p>It is important that the training is completed before the deadline. Please remind these employees to complete the 
