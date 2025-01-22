@@ -68,7 +68,11 @@
       "@auto-scripts"
     ],
     "phpcs": "vendor/bin/phpcs",
-    "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon"
+    "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon",
+    "start": [
+      "Composer\\Config::disableProcessTimeout",
+      "@php -S localhost:8080 -t public"
+    ]
   },
   "conflict": {
     "symfony/symfony": "*"
