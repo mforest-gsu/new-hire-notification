@@ -32,7 +32,7 @@ class AssignmentRepository extends AbstractRepository
             $assignment = new Assignment(
                 intval($row['Id']),
                 $row['Name'],
-                $row['Completed']
+                intval($row['Completed'])
             );
 
             if ($completed === null || $completed === $assignment->isCompleted()) {
