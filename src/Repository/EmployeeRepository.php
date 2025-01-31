@@ -38,7 +38,7 @@ class EmployeeRepository extends AbstractRepository
      */
     public function getEmployeesToRemind(): iterable
     {
-        foreach ($this->query('GetNotifyManager.sql') as $userId => list($employee,$row)) {
+        foreach ($this->query('GetRemindEmployee.sql') as $userId => list($employee,$row)) {
             /** @var array{HRE_EMPLOYEE_FIRST_NOTIFY?:string|null} $row */
             $firstNotify = is_string($row['HRE_EMPLOYEE_FIRST_NOTIFY'] ?? null)
                 ? new \DateTime($row['HRE_EMPLOYEE_FIRST_NOTIFY'])
