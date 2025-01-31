@@ -2,7 +2,7 @@ SELECT
   QuizObject.QuizId AS "Id",
   QuizObject.QuizName AS "Name",
   NVL((
-    SELECT
+    SELECT DISTINCT
         1
     FROM
         MFOREST.D2L_QUIZ_ATTEMPT QuizAttempt
