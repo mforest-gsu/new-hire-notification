@@ -23,7 +23,7 @@ class AssignmentRepository extends AbstractRepository
 
         /** @var iterable<int,array{Id:string,Name:string,Completed:int}> $result */
         $result = $this->oci
-            ->parse($this->sql('GetAssignments.sql'))
+            ->parse($this->sql('GetAssignment.sql'))
             ->bindByName(':OrgUnitId', $orgUnitId)
             ->bindByName(':UserId', $userId)
             ->query();

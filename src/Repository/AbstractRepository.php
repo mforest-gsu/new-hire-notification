@@ -40,11 +40,12 @@ abstract class AbstractRepository
      */
     protected function sql(string $sql): mixed
     {
-        $file = fopen($this->sqlDir . '/' . $sql, 'r');
+        $path = $this->sqlDir . '/' . $sql;
+        $file = fopen($path, 'r');
 
         return is_resource($file)
             ? $file
-            : throw new \RuntimeException();
+            : throw new \RuntimeException("File not found: " . $path);
     }
 
 
